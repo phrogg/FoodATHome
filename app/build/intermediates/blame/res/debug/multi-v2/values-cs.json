@@ -21,6 +21,23 @@
                     }
                 },
                 {
+                    "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/2ddd8340cd79d6ca6b4823187c4b3647/jetified-zxing-android-embedded-3.2.0/res/values-cs/values-cs.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,114,161,311",
+                        "endColumns": "58,46,149,83",
+                        "endOffsets": "109,156,306,390"
+                    },
+                    "to": {
+                        "startLines": "38,39,40,41",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "3706,3765,3812,3962",
+                        "endColumns": "58,46,149,83",
+                        "endOffsets": "3760,3807,3957,4041"
+                    }
+                },
+                {
                     "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/1dc374b804e19bfc1a649ab91d374966/core-1.1.0-rc01/res/values-cs/values-cs.xml",
                     "from": {
                         "startLines": "2",
@@ -52,23 +69,6 @@
                         "startOffsets": "2798,2871,2969,3046,3376,3545,3629",
                         "endColumns": "72,97,76,146,168,83,76",
                         "endOffsets": "2866,2964,3041,3188,3540,3624,3701"
-                    }
-                },
-                {
-                    "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/8123ee9ee5bea01c60bcb63e2041e546/jetified-zxing-android-embedded-3.2.0/res/values-cs/values-cs.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,114,161,311",
-                        "endColumns": "58,46,149,83",
-                        "endOffsets": "109,156,306,390"
-                    },
-                    "to": {
-                        "startLines": "38,39,40,41",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "3706,3765,3812,3962",
-                        "endColumns": "58,46,149,83",
-                        "endOffsets": "3760,3807,3957,4041"
                     }
                 }
             ]

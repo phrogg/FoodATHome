@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
         //createNoMedia();
         fetchDatabase();
 
+        // Scan Barcode FaB
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,6 +114,15 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
                 integrator.setBeepEnabled(false);
                 integrator.setBarcodeImageEnabled(true);
                 integrator.initiateScan();
+            }
+        });
+
+        // Manually enter product FaB
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newProductDialog(null);
             }
         });
 
@@ -405,7 +415,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
     private void newProductDialog(final String bar){
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add new product manually");
-        builder.setCancelable(false);
+        builder.setCancelable(true); //changed this
 
         final EditText one = new EditText(this);
         one.setHint("Product Name");
@@ -438,13 +448,20 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                Boolean wantToCloseDialog = (one.getText().toString().trim().isEmpty());
-                Boolean wantToCloseDialog2 = (two.getText().toString().trim().isEmpty());
+                Boolean boxFilled = (one.getText().toString().trim().isEmpty());
+                //Boolean boxFilled2 = (two.getText().toString().trim().isEmpty()); // it is not necessary to putin a company name, e.g. an apple
 
 
-                if (!wantToCloseDialog && !wantToCloseDialog2) {
-                    db.execSQL("INSERT INTO products(barcode,name,image,company,expiring,storage) " +
-                            "VALUES('" + bar + "','" + one.getText() + "','" + "bildlink" + "','" + two.getText() + "','empty')");
+                //if (!boxFilled && !boxFilled2) {
+                if (!boxFilled) {
+                    if(bar != null) {
+                        db.execSQL("INSERT INTO products(barcode,name,company) " +
+                                "VALUES('" + bar + "','" + one.getText() + "','" + two.getText() + "')");
+                    } else {
+                        db.execSQL("INSERT INTO products(name,company) " +
+                                "VALUES('" + one.getText() + "','" + two.getText() + "')");
+                    }
+
                     openDatePicker(-1);
                 }
 

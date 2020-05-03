@@ -673,7 +673,7 @@
     },
     {
         "merged": "/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/res/merged/debug/layout_zxing_barcode_scanner.xml.flat",
-        "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/8123ee9ee5bea01c60bcb63e2041e546/jetified-zxing-android-embedded-3.2.0/res/layout/zxing_barcode_scanner.xml"
+        "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/2ddd8340cd79d6ca6b4823187c4b3647/jetified-zxing-android-embedded-3.2.0/res/layout/zxing_barcode_scanner.xml"
     },
     {
         "merged": "/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -689,7 +689,7 @@
     },
     {
         "merged": "/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/res/merged/debug/layout_zxing_capture.xml.flat",
-        "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/8123ee9ee5bea01c60bcb63e2041e546/jetified-zxing-android-embedded-3.2.0/res/layout/zxing_capture.xml"
+        "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/2ddd8340cd79d6ca6b4823187c4b3647/jetified-zxing-android-embedded-3.2.0/res/layout/zxing_capture.xml"
     },
     {
         "merged": "/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/res/merged/debug/color-v23_abc_tint_btn_checkable.xml.flat",
@@ -1673,7 +1673,7 @@
     },
     {
         "merged": "/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/res/merged/debug/raw_zxing_beep.ogg.flat",
-        "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/8123ee9ee5bea01c60bcb63e2041e546/jetified-zxing-android-embedded-3.2.0/res/raw/zxing_beep.ogg"
+        "source": "/home/phil/.gradle/caches/transforms-2/files-2.1/2ddd8340cd79d6ca6b4823187c4b3647/jetified-zxing-android-embedded-3.2.0/res/raw/zxing_beep.ogg"
     },
     {
         "merged": "/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",

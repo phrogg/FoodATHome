@@ -1264,6 +1264,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fab
+id fab2
 id fill
 id fill_horizontal
 id fill_vertical

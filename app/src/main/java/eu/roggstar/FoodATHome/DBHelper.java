@@ -12,10 +12,10 @@ class DBHelper {
         db.execSQL(
                 "CREATE TABLE IF NOT EXISTS products(" +
                         "id integer primary key autoincrement," +
-                        "barcode text not null," +
+                        "barcode text," +
                         "name text not null," +
-                        "image text not null," +
-                        "company text not null," +
+                        "image text," +
+                        "company text," +
                         "expiring text," +
                         "storage integer" +
                         ")"
