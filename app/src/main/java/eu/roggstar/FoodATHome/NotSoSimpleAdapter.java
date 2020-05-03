@@ -60,8 +60,8 @@ public class NotSoSimpleAdapter extends BaseAdapter {
 
         // Setting all values in listview
         name.setText(product.name);
-        if(product.name.length() > 30) {
-            name.setText(product.name.substring(0,27)+"...");
+        if(product.name.length() > 29) {
+            name.setText(product.name.substring(0,26)+"...");
         }
         company.setText(product.company);
 

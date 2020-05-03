@@ -16,9 +16,9 @@
 
         <ImageView
             android:id="@+id/imgv"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:src="@drawable/item"/>
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/item" />
 
     </LinearLayout>
 
@@ -30,7 +30,7 @@
         android:layout_toRightOf="@+id/llayout"
         android:text="Red Bull"
         android:textColor="#040404"
-        android:textSize="15dip"
+        android:textSize="23dip"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -52,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/tx_company"
         android:layout_marginTop="2dp"
+        android:layout_marginRight="5dip"
         android:layout_toRightOf="@+id/llayout"
         android:indeterminate="false"
         android:max="100"
@@ -63,9 +64,10 @@
         android:id="@+id/tx_expiring"
         android:layout_width="200dp"
         android:layout_height="27dp"
-        android:layout_alignTop="@id/tx_name"
+        android:layout_alignBottom="@+id/tx_company"
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dip"
+        android:layout_marginBottom="0dp"
         android:gravity="right"
         android:text="expires in 10 days"
         android:textColor="#10bcc9"

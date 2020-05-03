@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
         mEStatistics = mStatistics.edit();
 
         if(mPrefs.getInt("wizard",0) == 0) {
-            //start first opening wizard
+            //start first opening wizard //TODO add the wirzard function to the settings
         }
 
         //Set Adapter
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
                 int camId = 0;
                 if(mPrefs.getBoolean("camera",false)){
                     camId = 1;
-                }
+                } //TODO add orientation option
                 integrator.setCameraId(camId);
                 integrator.setBeepEnabled(false);
                 integrator.setBarcodeImageEnabled(true);
@@ -397,8 +397,8 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
                     pcode += product.getString("code");
                 }
 
-                db.execSQL("INSERT INTO products(barcode,name,image,company,expiring,storage) " +
-                        "VALUES('" + pcode + "','" + pname + "','" + pimage + "','" + pbrand + "','empty')");
+                db.execSQL("INSERT INTO products(barcode,name,image,company) " +
+                        "VALUES('" + pcode + "','" + pname + "','" + pimage + "','" + pbrand + "')");
 
                 //new DownloadImageTask((ImageView) findViewById(R.id.imgv)).execute(product.getString("image_front_url"));
             } else {
