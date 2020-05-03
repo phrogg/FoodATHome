@@ -1,0 +1,56 @@
+<!--
+  ~ Copyright 2018 The app Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="List">
+
+        <EditTextPreference
+            app:key="progressbarmax"
+            app:title="Set the Progressbar limit" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Statistics">
+
+        <SwitchPreferenceCompat
+            app:key="statistics"
+            app:title="Turn on statistics" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Scanning">
+
+        <SwitchPreferenceCompat
+            app:key="camera"
+            app:title="Use front cam" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="About">
+
+        <Preference
+            app:key="feedback"
+            app:title="Send feedback"
+            app:summary="Report technical issues or suggest new features"/>
+
+    </PreferenceCategory>
+
+
+
+
+
+</androidx.preference.PreferenceScreen>

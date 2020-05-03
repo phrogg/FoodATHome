@@ -1,0 +1,4 @@
+#Sat Sep 07 16:39:38 CEST 2019
+base.0=/home/phil/MyLife/AndroidStudio/FoodATHome/app/build/intermediates/transforms/dexMerger/debug/5
+path.0=classes.dex
+renamed.0=classes.dex
