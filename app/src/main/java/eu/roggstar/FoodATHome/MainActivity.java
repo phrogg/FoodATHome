@@ -178,7 +178,6 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             }
         });
 
-
         AlertDialog alert = builder.create();
         alert.show();
     }
