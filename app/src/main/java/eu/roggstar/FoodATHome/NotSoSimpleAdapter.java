@@ -134,6 +134,7 @@ public class NotSoSimpleAdapter extends BaseAdapter {
         } else {
             //expiring.setVisibility(View.INVISIBLE);
             expiring.setText("non set");
+            pg.setVisibility(View.INVISIBLE);
         }
 
 
