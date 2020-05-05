@@ -186,8 +186,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Remove from list?");
-
-
+        
         if(mPrefs.getBoolean("statistics",false)) {
             builder.setMessage(productList.get(pos).name+" became ...");
 
