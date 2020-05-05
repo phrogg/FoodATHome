@@ -137,11 +137,7 @@ public class NotSoSimpleAdapter extends BaseAdapter {
             pg.setVisibility(View.INVISIBLE);
         }
 
-
-        //new DownloadImageTask((ImageView) vi.findViewById(R.id.imgv))
-        //        .execute(product.image);
-
-        //new DownloadImageTask(imgv).execute(product.image);
+        new DownloadImageTask(imgv, product.bar, activity).execute(product.image, product.bar);
 
         return vi;
     }

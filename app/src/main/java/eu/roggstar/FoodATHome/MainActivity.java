@@ -186,7 +186,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Remove from list?");
-        
+
         if(mPrefs.getBoolean("statistics",false)) {
             builder.setMessage(productList.get(pos).name+" became ...");
 
@@ -429,6 +429,8 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
         fetchDatabase();
     }
 
+
+    // TODO add new activity for this
     private void newProductDialog(final String bar){
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add new product manually");
