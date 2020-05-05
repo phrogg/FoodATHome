@@ -11,7 +11,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AlertDialog;
@@ -29,7 +28,6 @@ import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -44,15 +42,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity implements onCompleted {
 
@@ -130,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                onclickdialog(position);
+                diaRemProd(position);
             }
         });
 
@@ -138,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position,
                                            long id) {
-                longclickdialog(position);
+                diaLongClickDecision(position);
                 return true;
             }
         });
@@ -149,28 +140,50 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
     @Override
     protected void onResume(){
         super.onResume();
-        fetchDatabase();
+        fetchDatabase(); // noice
     }
 
-    private void onclickdialog(final int pos){
+    private void cloneProduct(final int pos){
+        db = openOrCreateDatabase("products.db",MODE_PRIVATE,null);
+        try{
+            db.execSQL("insert into products(barcode,name,image,company) select barcode,name,image,company from products where id = "+productList.get(pos).id);
+            //removeUnusedImages(productList.get(pos).image); TODO FIX
+        } catch (Exception e){
+            Log.d("PHILZ",e.toString());
+        }
+        openDatePicker(lastId());
+        db.close();
+    }
+
+
+    private void diaLongClickDecision(final int pos) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Change Food");
+        builder.setTitle("What would you like to do?");
 
-        builder.setMessage(productList.get(pos).name+" change ...");
+        builder.setMessage(productList.get(pos).name);
 
-        builder.setNeutralButton("MHD", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Change MHD", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 openDatePicker(productList.get(pos).id);
                 dialog.dismiss();
             }
         });
 
+        builder.setNegativeButton("Clone Product", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cloneProduct(pos);
+                dialog.dismiss();
+            }
+        });
+
+
         AlertDialog alert = builder.create();
         alert.show();
     }
 
-    private void longclickdialog(final int pos) {
+    private void diaRemProd(final int pos) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Remove from list?");
@@ -233,6 +246,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             //removeUnusedImages(productList.get(pos).image); TODO FIX
         } catch (Exception e){
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG).show(); //TODO remove
+            Log.d("PHILZ",e.toString());
         }
         productList.remove(pos);
         adapter.notifyDataSetChanged();
@@ -365,7 +379,11 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             Cursor resultSet = db.rawQuery("SELECT * FROM products",null);
             resultSet.moveToFirst();
             while(resultSet.isAfterLast() == false){
-                productList.add(new Product(resultSet.getInt(0),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5)));
+                String tmpExpir = resultSet.getString(5);
+                if(tmpExpir == null){
+                    tmpExpir = "00000000";
+                }
+                productList.add(new Product(resultSet.getInt(0),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),tmpExpir));
                 resultSet.moveToNext();
             }
         } catch (Exception e){
@@ -407,6 +425,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
 
         } catch(Exception e){
             Toast.makeText(this, e.toString(), Toast.LENGTH_SHORT).show();
+            Log.d("PHILZ",e.toString());
         }
 
         fetchDatabase();
@@ -533,8 +552,10 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             fos.close();
         } catch (FileNotFoundException e) {
             Log.d("philo", "File not found: " + e.getMessage());
+            Log.d("PHILZ",e.toString());
         } catch (IOException e) {
             Log.d("philo", "Error accessing file: " + e.getMessage());
+            Log.d("PHILZ",e.toString());
         }
         /*
         BitmapFactory.Options options = new BitmapFactory.Options();
