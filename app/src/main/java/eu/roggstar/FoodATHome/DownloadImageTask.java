@@ -26,7 +26,7 @@ class DownloadImageTask extends AsyncTask<String, Void, Bitmap> { //TODO cleanup
         public DownloadImageTask(ImageView bmImage, String barCode, Activity activity) {
             this.bmImage = bmImage;
             this.barCode = barCode;
-            this.activity = activity; //TODO conflict multiple downloading
+            this.activity = activity;
         }
 
         protected Bitmap doInBackground(String... urls) {

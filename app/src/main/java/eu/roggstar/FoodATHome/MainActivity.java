@@ -95,12 +95,17 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
             @Override
             public void onClick(View view) {
                 IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setCaptureActivity(AnyOrientationCaptureActivity.class);
                 integrator.setDesiredBarcodeFormats(IntentIntegrator.PRODUCT_CODE_TYPES);
-                integrator.setPrompt("Scan");
+                integrator.setPrompt("Scan product barcode");
                 int camId = 0;
-                if(mPrefs.getBoolean("camera",false)){
+                if(mPrefs.getBoolean("whichCamera",false)){
                     camId = 1;
-                } //TODO add orientation option
+                }
+                if(mPrefs.getBoolean("orientCamera",false)){
+                    integrator.setOrientationLocked(false);
+                }
+
                 integrator.setCameraId(camId);
                 integrator.setBeepEnabled(false);
                 integrator.setBarcodeImageEnabled(true);

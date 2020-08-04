@@ -35,8 +35,12 @@
     <PreferenceCategory app:title="Scanning">
 
         <SwitchPreferenceCompat
-            app:key="camera"
+            app:key="whichCamera"
             app:title="Use front cam" />
+
+        <SwitchPreferenceCompat
+            app:key="orientCamera"
+            app:title="Unlock Orientation" />
 
     </PreferenceCategory>
 
@@ -48,9 +52,5 @@
             app:summary="Report technical issues or suggest new features"/>
 
     </PreferenceCategory>
-
-
-
-
 
 </androidx.preference.PreferenceScreen>
