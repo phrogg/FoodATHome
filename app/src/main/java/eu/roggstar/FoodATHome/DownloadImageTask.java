@@ -54,9 +54,8 @@ class DownloadImageTask extends AsyncTask<String, Void, Bitmap> { //TODO cleanup
             return new File(activity.getExternalFilesDir(null) + File.separator, barCode + ".png");
         }
 
-        protected boolean picExists(){
-            File testFile = createFilePath();
-            return testFile.exists();
+        protected boolean picExists() {
+            return createFilePath().exists();
         }
 
         protected boolean save2Disk(Bitmap result){
