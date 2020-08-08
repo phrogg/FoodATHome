@@ -170,6 +170,10 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
 
         builder.setPositiveButton("Change MHD", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
+                String currDate = productList.get(pos).expiring;
+                year = Integer.parseInt(currDate.substring(0,4));
+                month = Integer.parseInt(currDate.substring(4,6));
+                day = Integer.parseInt(currDate.substring(6,8));
                 openDatePicker(productList.get(pos).id);
                 dialog.dismiss();
             }
@@ -276,10 +280,13 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
     }
 
     void openDatePicker(int currID){
-        if(currID != -1){ this.currID = currID; }
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
+        if(currID != -1){
+            this.currID = currID;
+        } else {
+            year = calendar.get(Calendar.YEAR);
+            month = calendar.get(Calendar.MONTH);
+            day = calendar.get(Calendar.DAY_OF_MONTH);
+        }
         showDialog(999);
     }
 
@@ -302,8 +309,7 @@ public class MainActivity extends AppCompatActivity implements onCompleted {
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == 999) {
-            return new DatePickerDialog(this,
-                    myDateListener, year, month, day);
+            return new DatePickerDialog(this, myDateListener, year, month, day);
         }
         return null;
     }
