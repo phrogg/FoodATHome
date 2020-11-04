@@ -37,11 +37,11 @@ class DownloadImageTask extends AsyncTask<String, Void, Bitmap> { //TODO cleanup
                 if(!picExists()) {
                     InputStream in = new java.net.URL(urldisplay).openStream();
                     mIcon11 = BitmapFactory.decodeStream(in);
-                    Log.d("philz","pic does not exist");
+                    //Log.d("philz","pic does not exist");
                 } else {
                     FileInputStream in = new FileInputStream(createFilePath());
                     mIcon11 = BitmapFactory.decodeStream(in);
-                    Log.d("philz","pic does exist");
+                    //Log.d("philz","pic does exist");
                 }
             } catch (Exception e) {
                 Log.e("Error", e.getMessage());
